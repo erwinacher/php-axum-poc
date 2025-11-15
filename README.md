@@ -36,16 +36,16 @@ This hybrid architecture achieves:
 
 ## Architecture Overview
 
-┌────────────┐     ┌──────────────┐     ┌────────────┐
-│ Browser    │ --> │ Nginx        │ --> │ PHP-FPM    │
-└────────────┘     └──────────────┘     │ (SSR/UI)   │
-                                        └──────┬─────┘
-                                               │ HTTP
-                                               ▼
-                                        ┌──────────────┐
-                                        │ Rust/Axum    │
-                                        │ (Compute API)│
-                                        └──────────────┘
+┌────────────┐     ┌──────────────┐     ┌────────────┐  
+│ Browser    │ --> │ Nginx        │ --> │ PHP-FPM    │  
+└────────────┘     └──────────────┘     │ (SSR/UI)   │  
+                                        └──────┬─────┘  
+                                               │ HTTP  
+                                               ▼  
+                                        ┌──────────────┐  
+                                        │ Rust/Axum    │  
+                                        │ (Compute API)│  
+                                        └──────────────┘  
 
 - Nginx serves PHP pages.
 - PHP renders the view, then calls Rust for any “heavy lifting”.
